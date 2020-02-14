@@ -27,7 +27,9 @@ class Ship():
 		self.moving_right = False
 		self.moving_left = False
 		
+		"""设置飞行速度"""
 		self.ship_speed_factor = 1.5
+		"""由于self.rect.centerx属性只能存储整数，利用self.center进行加减"""
 		self.center = float(self.rect.centerx)
 		
 	def update(self):
@@ -44,7 +46,9 @@ class Ship():
 		elif self.moving_left and self.rect.left > 0:
 			self.center -= self.ship_speed_factor
 			
+		"""改变完位置后再存储到self.rect.centerx属性中"""	
 		self.rect.centerx = self.center
+		print("self.rect.centerx: " + str(self.rect.centerx))
 		
 	def blitme(self):
 		"""绘制飞船"""
